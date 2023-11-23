@@ -1,3 +1,5 @@
+import './Logo.css';
+
 type Logotype = {
   logo: string;
 }

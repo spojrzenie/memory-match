@@ -1,0 +1,35 @@
+.board_container {
+  display: grid;
+  gap: 10px;
+  border: 0px solid white;
+  padding: 20px;
+
+  // @media all and (min-width: 488px) {
+  //   grid-template-columns: repeat(2, 200px);
+  // }
+
+  // @media all and (min-width: 768px) {
+  //   grid-template-columns: repeat(3, 100px);
+  // }
+
+  // @media all and (min-width: 1024px) {
+  //   grid-template-columns: repeat(3, 100px);
+  // }
+
+  grid-template-columns: repeat(4, 100px);
+
+  &__card {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
+
+.isHidden {
+  display: none;
+}

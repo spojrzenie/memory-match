@@ -1,0 +1,18 @@
+.App-logo {
+  border-radius: 100px;
+  animation: swing 3s infinite ease-in-out;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes swing {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
