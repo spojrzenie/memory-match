@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Board.scss';
 
 type Cards = {
@@ -21,7 +22,7 @@ const cards: Cards[] = [
 ];
 
 const getShuffledPairs = (): DoubleCards[] => {
-  const selectedCards = [...cards].sort(() => 0.5 - Math.random()).slice(0,6);
+  const selectedCards = [...cards].sort(() => 0.5 - Math.random()).slice(0, 6);
   const doubleCards: DoubleCards[] = selectedCards.reduce<DoubleCards[]>((acc, card) => {
     acc.push({ ...card, uniqueId: `${card.id}-a` }, { ...card, uniqueId: `${card.id}-b` });
     return acc;
@@ -37,12 +38,28 @@ console.table(getShuffledPairs());
 const doubleCards = getShuffledPairs();
 
 export const Board = () => {
+  const [cardsState, setCardsState] = useState(
+    doubleCards.map(card => ({ ...card, isFlipped: false }))
+  );
+
+  const handleCardClick = (uniqueId: string) => {
+    setCardsState(prevState =>
+      prevState.map(card =>
+        card.uniqueId === uniqueId ? { ...card, isFlipped: !card.isFlipped } : card
+      )
+    );
+  }
+
   return (
     <div className='board_container'>
-      {doubleCards.map(card => {
+      {cardsState.map(card => {
         return (
-          <div className='board_container__card' key={card.uniqueId}>
-            {card.name}
+          <div
+            className={`board_container__card ${card.isFlipped ? 'flipped': ''}`}
+            key={card.uniqueId}
+            onClick={() => handleCardClick(card.uniqueId)}
+          >
+            {/* {card.isFlipped ? 'front' : 'back'} */}
           </div>
         )
       })}

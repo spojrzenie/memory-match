@@ -1,7 +1,10 @@
 {
   "name": "memory-match",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
+  "author": "Krzysztof Janiewicz",
+  "license": "GPL-3.0",
   "dependencies": {
     "@mate-academy/eslint-config-react-typescript": "*",
     "@mate-academy/students-ts-config": "*",
@@ -27,7 +30,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint-js": "eslint --ext .js ./src/"
+    "lint-js": "eslint --ext .js ./src/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "ajv": "^6.12.6"
+    "ajv": "^6.12.6",
+    "gh-pages": "^6.1.0"
   }
 }
