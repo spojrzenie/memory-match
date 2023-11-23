@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.2ab19d62.css",
-    "main.js": "/static/js/main.f0385e55.js",
-    "static/js/787.fde9ea19.chunk.js": "/static/js/787.fde9ea19.chunk.js",
-    "static/media/memory-match-logo.png": "/static/media/memory-match-logo.0710669c8247077361f5.png",
-    "index.html": "/index.html",
-    "main.2ab19d62.css.map": "/static/css/main.2ab19d62.css.map",
-    "main.f0385e55.js.map": "/static/js/main.f0385e55.js.map",
-    "787.fde9ea19.chunk.js.map": "/static/js/787.fde9ea19.chunk.js.map"
+    "main.css": "./static/css/main.2ab19d62.css",
+    "main.js": "./static/js/main.2a50e52e.js",
+    "static/js/787.fde9ea19.chunk.js": "./static/js/787.fde9ea19.chunk.js",
+    "static/media/memory-match-logo.png": "./static/media/memory-match-logo.0710669c8247077361f5.png",
+    "index.html": "./index.html",
+    "main.2ab19d62.css.map": "./static/css/main.2ab19d62.css.map",
+    "main.2a50e52e.js.map": "./static/js/main.2a50e52e.js.map",
+    "787.fde9ea19.chunk.js.map": "./static/js/787.fde9ea19.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2ab19d62.css",
-    "static/js/main.f0385e55.js"
+    "static/js/main.2a50e52e.js"
   ]
 }
