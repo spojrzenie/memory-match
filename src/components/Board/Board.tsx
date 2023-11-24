@@ -28,13 +28,9 @@ const getShuffledPairs = (): DoubleCards[] => {
     return acc;
   }, []);
   const shuffledCards = doubleCards.sort(() => 0.5 - Math.random());
-
-  return (
-    shuffledCards
-  )
+  return shuffledCards;
 }
 
-console.table(getShuffledPairs());
 const doubleCards = getShuffledPairs();
 
 export const Board = () => {
@@ -48,21 +44,24 @@ export const Board = () => {
         card.uniqueId === uniqueId ? { ...card, isFlipped: !card.isFlipped } : card
       )
     );
-  }
+  };
 
   return (
     <div className='board_container'>
-      {cardsState.map(card => {
-        return (
-          <div
-            className={`board_container__card ${card.isFlipped ? 'flipped': ''}`}
-            key={card.uniqueId}
-            onClick={() => handleCardClick(card.uniqueId)}
-          >
-            {/* {card.isFlipped ? 'front' : 'back'} */}
+      {cardsState.map((card, index) => (
+        <div
+          className={`card ${!card.isFlipped ? 'is-flipped' : ''}`}
+          key={card.uniqueId}
+          onClick={() => handleCardClick(card.uniqueId)}
+        >
+          <div className='card__face card__face--front'>
+            {/* Front {card.id} */}
           </div>
-        )
-      })}
+          <div className='card__face card__face--back'>
+            {/* Back {card.id} */}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
