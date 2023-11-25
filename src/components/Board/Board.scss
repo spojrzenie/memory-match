@@ -7,19 +7,17 @@
 @mixin grid() {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(4, 55px);
+  grid-template-columns: repeat(4, 78px);
   gap: 10px;
+  border: 0px solid yellow;
 
   @include big() {
-    grid-template-columns: repeat(4, 155px);
+    grid-template-columns: repeat(4, 130px);
     gap: 10px;
   }
 }
 
 .board_container {
-  padding: 0px;
-  border: 0px solid red;
-
   @include grid();
 }
 
@@ -28,10 +26,11 @@
   perspective: 1000px;
   cursor: pointer;
   border: 0px solid yellow;
-  height: 60px;
+  height: 78px;
+  border: 0px solid red;
 
   @media (min-width: 768px) {
-    height: 155px;
+    height: 130px;
   }
 }
 
@@ -46,56 +45,32 @@
   align-items: center;
   justify-content: center;
   border: 0px solid #ccc;
-
-  &--front {
-
-  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
 
   &--front1 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
     background-image: url(../../image/card-1.png);
   }
 
   &--front2 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
     background-image: url(../../image/card-2.png);
   }
 
   &--front3 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
     background-image: url(../../image/card-3.png);
   }
 
   &--front4 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
     background-image: url(../../image/card-4.png);
   }
 
   &--front5 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
     background-image: url(../../image/card-5.png);
   }
 
   &--front6 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
     background-image: url(../../image/card-6.png);
   }
 

@@ -1,13 +1,10 @@
-import './Logo.css';
+import './Header.css';
+import logo from '../../image/memory-match-logo.png';
 
-type Logotype = {
-  logo: string;
-}
-
-export const Logo = ({ logo }: Logotype) => {
+export const Header = () => {
   return (
     <header className="App-header">
-      <a href="/">
+      <a href="index.html">
         <img src={logo} className="App-logo" alt="logo" />
       </a>
     </header>
