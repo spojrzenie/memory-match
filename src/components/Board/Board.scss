@@ -19,7 +19,7 @@
 .board_container {
   padding: 0px;
   border: 0px solid red;
-  
+
   @include grid();
 }
 
@@ -46,17 +46,67 @@
   align-items: center;
   justify-content: center;
   border: 0px solid #ccc;
-}
 
-.card__face--front {
-  background: blue;
-}
+  &--front {
 
-.card__face--back {
-  background-image: url(../../image/card.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  transform: rotateY(180deg);
+  }
+
+  &--front1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-image: url(../../image/card-1.png);
+  }
+
+  &--front2 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-image: url(../../image/card-2.png);
+  }
+
+  &--front3 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-image: url(../../image/card-3.png);
+  }
+
+  &--front4 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-image: url(../../image/card-4.png);
+  }
+
+  &--front5 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-image: url(../../image/card-5.png);
+  }
+
+  &--front6 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-image: url(../../image/card-6.png);
+  }
+
+  &--back {
+    background-image: url(../../image/card.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    transform: rotateY(180deg);
+  }
 }
 
 .card.is-flipped {

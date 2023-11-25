@@ -54,7 +54,7 @@ export const Board = () => {
           key={card.uniqueId}
           onClick={() => handleCardClick(card.uniqueId)}
         >
-          <div className='card__face card__face--front'>
+          <div className={`card__face card__face--front card__face--front${card.id}`}>
             {/* Front {card.id} */}
           </div>
           <div className='card__face card__face--back'>
