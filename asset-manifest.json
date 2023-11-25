@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.d9a33a4d.css",
-    "main.js": "./static/js/main.b3447818.js",
+    "main.css": "./static/css/main.4c2e74b2.css",
+    "main.js": "./static/js/main.7d1e16b4.js",
     "static/js/787.fde9ea19.chunk.js": "./static/js/787.fde9ea19.chunk.js",
     "static/media/card-4.png": "./static/media/card-4.0363b5f776ea3dbfd727.png",
     "static/media/card-5.png": "./static/media/card-5.59ff904e41001f6d391b.png",
@@ -9,15 +9,15 @@
     "static/media/card-2.png": "./static/media/card-2.616d70c2a17da70cee9f.png",
     "static/media/card-3.png": "./static/media/card-3.ba84b8248ee403aebfe5.png",
     "static/media/card-6.png": "./static/media/card-6.b2cc249103e13d7b2cd8.png",
-    "static/media/card.png": "./static/media/card.48ce79c6788d2a7d0fc3.png",
-    "static/media/memory-match-logo.png": "./static/media/memory-match-logo.0a4b89edacebf3671633.png",
+    "static/media/memory-match-logo.png": "./static/media/memory-match-logo.a64a68c9b6c780f19e71.png",
+    "static/media/card.png": "./static/media/card.005207b7d8e999f7793c.png",
     "index.html": "./index.html",
-    "main.d9a33a4d.css.map": "./static/css/main.d9a33a4d.css.map",
-    "main.b3447818.js.map": "./static/js/main.b3447818.js.map",
+    "main.4c2e74b2.css.map": "./static/css/main.4c2e74b2.css.map",
+    "main.7d1e16b4.js.map": "./static/js/main.7d1e16b4.js.map",
     "787.fde9ea19.chunk.js.map": "./static/js/787.fde9ea19.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9a33a4d.css",
-    "static/js/main.b3447818.js"
+    "static/css/main.4c2e74b2.css",
+    "static/js/main.7d1e16b4.js"
   ]
 }
