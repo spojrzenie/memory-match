@@ -1,7 +1,7 @@
 import './Header.css';
 import logo from '../../image/memory-match-logo.png';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className="App-header">
       <a href="index.html">
