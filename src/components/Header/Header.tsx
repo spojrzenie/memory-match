@@ -20,7 +20,7 @@ export const Header: React.FC<Props> = ({ time, isGameFinished, handleStartAgain
         <img src={logo} className="HeaderLogo" alt="logo" />
       </div>
       <div className='Header__right'>
-        {!isGameFinished && (
+        {isGameFinished && (
           <button className='Header__button' onClick={handleStartAgain}>Play again</button>
         )}
       </div>
