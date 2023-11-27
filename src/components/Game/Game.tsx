@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import './Board.scss';
+import { useEffect, useState } from 'react';
+import './Game.scss';
+import { Header } from '../Header';
 
 type Cards = {
   id: number,
@@ -37,18 +38,63 @@ const getShuffledPairs = (): DoubleCards[] => {
 
 const doubleCards = getShuffledPairs();
 
-export const Board: React.FC = () => {
+export const Game: React.FC = () => {
   const [canFlip, setCanFlip] = useState(true);
-
   const [cardsState, setCardsState] = useState(
     doubleCards.map(card => ({ ...card, isFlipped: false, isMatched: false }))
   );
+  const [, setFlippedCards] = useState<DoubleCards[]>([]);
+  const [time, setTime] = useState(0);
+  const [stoperIsActive, setStoperIsActive] = useState(false);
+  const [isGameFinished, setIsGameFinished] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [flippedCards, setFlippedCards] = useState<DoubleCards[]>([]);
+
+  useEffect(() => {
+    let intervalId: number | NodeJS.Timer;
+
+    if (stoperIsActive) {
+      intervalId = setInterval(() => {
+        setTime(prevTime => prevTime + 1);
+      }, 1000);
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId as number);
+      }
+    };
+  }, [stoperIsActive]);
+
+  useEffect(() => {
+    const allCardsMatched = cardsState.every(card => card.isMatched);
+    setIsGameFinished(allCardsMatched);
+    if (allCardsMatched) {
+      setStoperIsActive(false);
+    }
+  }, [cardsState]);
+
+  const handleStartAgain = () => {
+    const newShuffledCards = getShuffledPairs();
+  
+    setCardsState(
+      newShuffledCards.map(card => ({ ...card, isFlipped: false, isMatched: false }))
+    );
+
+    setTime(0);
+    setStoperIsActive(false);
+    setFlippedCards([]);
+    setCanFlip(true);
+    setIsGameFinished(false);
+  };
 
   const handleCardClick = (uniqueId: string) => {
     if (!canFlip) return;
+
+    if (!stoperIsActive && cardsState.some(card => !card.isFlipped)) {
+      setStoperIsActive(true);
+    }
+
+    console.log(cardsState);
 
     const foundCard = cardsState.find(card => card.uniqueId === uniqueId);
 
@@ -101,21 +147,29 @@ export const Board: React.FC = () => {
   };
 
   return (
-    <div className='board_container'>
-      {cardsState.map((card) => (
-        <div
-          className={`card ${!card.isFlipped ? 'is-flipped' : ''}`}
-          key={card.uniqueId}
-          onClick={() => handleCardClick(card.uniqueId)}
-        >
-          <div className={`card__face card__face--front card__face--front${card.id}`}>
-            {/* Front {card.id} */}
+    <div className="App">
+      <Header
+        time={time}
+        isGameFinished={isGameFinished}
+        handleStartAgain={handleStartAgain}
+      />
+
+      <div className='board_container'>
+        {cardsState.map((card) => (
+          <div
+            className={`card ${!card.isFlipped ? 'is-flipped' : ''}`}
+            key={card.uniqueId}
+            onClick={() => handleCardClick(card.uniqueId)}
+          >
+            <div className={`card__face card__face--front card__face--front${card.id}`}>
+              {/* Front {card.id} */}
+            </div>
+            <div className='card__face card__face--back'>
+              {/* Back {card.id} */}
+            </div>
           </div>
-          <div className='card__face card__face--back'>
-            {/* Back {card.id} */}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,89 @@
+$fontFranklin: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+.HeaderLogo {
+  box-sizing: border-box;
+  border-radius: 80px;
+  animation: swing 3s infinite ease-in-out;
+  width: 160px;
+  height: 160px;
+
+  @media (min-width: 768px) {
+    width: 240px;
+    height: 240px;
+    border-radius: 120px;
+  }
+}
+
+@keyframes swing {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes pulsate {
+  0% { 
+      opacity: 0.5;
+  }
+  50% { 
+      opacity: 1.0;
+  }
+  100% { 
+      opacity: 0.5;
+  }
+}
+
+.Header {
+  width: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-self: center;
+  align-items: center;
+  font-size: 14px;
+  font-family: $fontFranklin;
+  color: #eee;
+
+  @media (min-width: 768px) {
+    width: 550px;
+    font-size: 20px;
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: inherit;
+    cursor: pointer;
+    font-family: $fontFranklin;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  &__time {
+    font-size: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 30px;
+    }
+
+    &--pulsate {
+      animation: pulsate 2s infinite ease-in-out;
+    }
+  }
+
+  &__right {
+    animation: pulsate 1s infinite ease-in-out;
+
+    &--hidden {
+      display: none;;
+    }
+  }
+}
+

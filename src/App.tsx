@@ -1,15 +1,10 @@
 import './App.scss';
-import { Header } from './components/Header';
-import { Board } from './components/Board';
+// import { Header } from './components/Header';
+import { Game } from './components/Game';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Header />
-      <Board />
-
-      
-    </div>
+      <Game />
   );
 }
 
