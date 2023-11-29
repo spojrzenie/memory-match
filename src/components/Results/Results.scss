@@ -1,0 +1,62 @@
+$fontFranklin: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+.Results {
+  padding: 20px;
+  margin: 0 auto;
+  width: 330px;
+  background-color: #06000e;
+  border-radius: 6px;
+  color: #eee;
+  font-family: $fontFranklin;
+
+
+  @media (min-width: 768px) {
+    width: 350px;
+  }
+
+  &__title {
+    font-size: 20px;
+    text-align: left;
+    color: #a775bd;
+
+    &--highlighted {
+      font-size: 30px;
+      display: block;
+      text-align: center;
+      color: #eee;
+    }
+  }
+
+  &__list {
+    text-align: center;
+  }
+
+  &__button {
+    margin: 10px;
+    padding: 10px;
+    font-family: $fontFranklin;
+    font-size: 20px;
+    background-color: #ef4000;
+    color: #eee;
+    border: 0;
+    border-radius: 6px;
+    width: 100px;
+  }
+
+  &__highlighted {
+    color: #ef4000;
+  }
+
+  &--spaced {
+    margin-top: 40px;
+  }
+
+  &__form {
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+

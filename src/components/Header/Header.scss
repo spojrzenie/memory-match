@@ -39,7 +39,7 @@ $fontFranklin: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .Header {
-  width: 350px;
+  width: 330px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-self: center;
@@ -49,7 +49,7 @@ $fontFranklin: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #eee;
 
   @media (min-width: 768px) {
-    width: 550px;
+    width: 530px;
     font-size: 20px;
   }
 
@@ -66,11 +66,11 @@ $fontFranklin: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
   }
 
-  &__time {
-    font-size: 20px;
+  &__count {
+    color:#ef4000;
 
     @media (min-width: 768px) {
-      font-size: 30px;
+      font-size: 20px;
     }
 
     &--pulsate {
@@ -84,6 +84,10 @@ $fontFranklin: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     &--hidden {
       display: none;;
     }
+  }
+
+  &__left {
+    text-align: left;
   }
 }
 

@@ -9,7 +9,6 @@
   justify-content: center;
   grid-template-columns: repeat(4, 78px);
   gap: 10px;
-  border: 0px solid yellow;
 
   @include big() {
     grid-template-columns: repeat(4, 130px);
@@ -92,4 +91,8 @@
   .card__face--back {
     transform: rotateY(360deg);
   }
+}
+
+.Form {
+  color: white;
 }

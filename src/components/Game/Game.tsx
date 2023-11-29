@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Game.scss';
 import { Header } from '../Header';
+import { Results } from '../Results';
 
 type Cards = {
   id: number,
@@ -45,6 +46,7 @@ export const Game: React.FC = () => {
   );
   const [, setFlippedCards] = useState<DoubleCards[]>([]);
   const [time, setTime] = useState(0);
+  const [moves, setMoves] = useState(0);
   const [stoperIsActive, setStoperIsActive] = useState(false);
   const [isGameFinished, setIsGameFinished] = useState(false);
 
@@ -75,12 +77,13 @@ export const Game: React.FC = () => {
 
   const handleStartAgain = () => {
     const newShuffledCards = getShuffledPairs();
-  
+
     setCardsState(
       newShuffledCards.map(card => ({ ...card, isFlipped: false, isMatched: false }))
     );
 
     setTime(0);
+    setMoves(0);
     setStoperIsActive(false);
     setFlippedCards([]);
     setCanFlip(true);
@@ -90,11 +93,13 @@ export const Game: React.FC = () => {
   const handleCardClick = (uniqueId: string) => {
     if (!canFlip) return;
 
+    if (!isGameFinished) {
+      setMoves(prevCount => prevCount + 1);
+    }
+
     if (!stoperIsActive && cardsState.some(card => !card.isFlipped)) {
       setStoperIsActive(true);
     }
-
-    console.log(cardsState);
 
     const foundCard = cardsState.find(card => card.uniqueId === uniqueId);
 
@@ -150,6 +155,7 @@ export const Game: React.FC = () => {
     <div className="App">
       <Header
         time={time}
+        moves={moves}
         isGameFinished={isGameFinished}
         handleStartAgain={handleStartAgain}
       />
@@ -161,15 +167,17 @@ export const Game: React.FC = () => {
             key={card.uniqueId}
             onClick={() => handleCardClick(card.uniqueId)}
           >
-            <div className={`card__face card__face--front card__face--front${card.id}`}>
-              {/* Front {card.id} */}
-            </div>
-            <div className='card__face card__face--back'>
-              {/* Back {card.id} */}
-            </div>
+            <div className={`card__face card__face--front card__face--front${card.id}`}></div>
+            <div className='card__face card__face--back'></div>
           </div>
         ))}
       </div>
+
+      <Results
+        time={time}
+        moves={moves}
+        isGameFinished={isGameFinished}
+      />
     </div>
   );
 };

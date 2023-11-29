@@ -1,20 +1,21 @@
 import './Header.scss';
 import logo from '../../image/memory-match-logo.png';
+import { Time } from './Time';
+import { Moves } from './Moves';
 
 type Props = {
   time: number;
+  moves: number;
   isGameFinished: boolean;
   handleStartAgain: () => void;
 }
 
-export const Header: React.FC<Props> = ({ time, isGameFinished, handleStartAgain }) => {
+export const Header: React.FC<Props> = ({ time, moves, isGameFinished, handleStartAgain }) => {
   return (
     <header className="Header">
       <div className='Header__left'>
-        Time
-        <div className='Header__time'>
-          {time}s
-        </div>
+        <Time time={time} />
+        <Moves moves={moves} />
       </div>
       <div>
         <img src={logo} className="HeaderLogo" alt="logo" />
