@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.98aa75f5.css",
+    "main.css": "./static/css/main.9d2a58ec.css",
     "main.js": "./static/js/main.0baab3b6.js",
     "static/js/787.fde9ea19.chunk.js": "./static/js/787.fde9ea19.chunk.js",
     "static/media/card-4.png": "./static/media/card-4.0363b5f776ea3dbfd727.png",
@@ -12,12 +12,12 @@
     "static/media/memory-match-logo.png": "./static/media/memory-match-logo.a64a68c9b6c780f19e71.png",
     "static/media/card.png": "./static/media/card.005207b7d8e999f7793c.png",
     "index.html": "./index.html",
-    "main.98aa75f5.css.map": "./static/css/main.98aa75f5.css.map",
+    "main.9d2a58ec.css.map": "./static/css/main.9d2a58ec.css.map",
     "main.0baab3b6.js.map": "./static/js/main.0baab3b6.js.map",
     "787.fde9ea19.chunk.js.map": "./static/js/787.fde9ea19.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98aa75f5.css",
+    "static/css/main.9d2a58ec.css",
     "static/js/main.0baab3b6.js"
   ]
 }
