@@ -1,19 +1,13 @@
 import { useEffect, useState } from 'react';
+import { DoubleCards } from '../../types';
 import './Game.scss';
 import { Header } from '../Header';
 import { Results } from '../Results';
+import { Board } from '../Board';
 
 type Cards = {
   id: number,
   name: string,
-}
-
-type DoubleCards = {
-  uniqueId: string,
-  id: number,
-  name: string,
-  isFlipped?: boolean,
-  isMatched?: boolean
 }
 
 const cards: Cards[] = [
@@ -151,6 +145,10 @@ export const Game: React.FC = () => {
     }
   };
 
+  const onNewGameStarted = () => {
+
+  };
+
   return (
     <div className="App">
       <Header
@@ -160,23 +158,16 @@ export const Game: React.FC = () => {
         handleStartAgain={handleStartAgain}
       />
 
-      <div className='board_container'>
-        {cardsState.map((card) => (
-          <div
-            className={`card ${!card.isFlipped ? 'is-flipped' : ''}`}
-            key={card.uniqueId}
-            onClick={() => handleCardClick(card.uniqueId)}
-          >
-            <div className={`card__face card__face--front card__face--front${card.id}`}></div>
-            <div className='card__face card__face--back'></div>
-          </div>
-        ))}
-      </div>
+      <Board
+        cardsState={cardsState}
+        onCardClick={handleCardClick}
+      />
 
       <Results
         time={time}
         moves={moves}
         isGameFinished={isGameFinished}
+        onNewGameStarted={onNewGameStarted}
       />
     </div>
   );

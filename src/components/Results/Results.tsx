@@ -10,39 +10,39 @@ type Props = {
   time: number;
   moves: number;
   isGameFinished: boolean;
+  onNewGameStarted: () => void;
 }
 
-export const Results: React.FC<Props> = ({ time, moves, isGameFinished }) => {
+export const Results: React.FC<Props> = ({ time, moves, isGameFinished, onNewGameStarted }) => {
   const [results, setResults] = useState<Result[]>([]);
-  const [isScoreSavedLocally, setIsScoreSavedLocally] = useState(false);
+  const [isScoreSavedLocally] = useState(false);
   const [showResults, setShowResults] = useState(false);
+
+  useEffect(() => {
+    if (!isGameFinished) {
+      onNewGameStarted();
+    }
+  }, [isGameFinished, onNewGameStarted]);
 
   useEffect(() => {
     const resultsString = localStorage.getItem('gameResults');
     const savedResults = resultsString ? JSON.parse(resultsString) : [];
     setResults(savedResults);
-
-    const isScoreSaved = localStorage.getItem('isScoreSaved') === 'true';
-    setIsScoreSavedLocally(isScoreSaved);
-    if (isScoreSaved) {
-      setShowResults(true);
-    }
-  }, []);
+  }, [isScoreSavedLocally]);
 
   const saveResult = (moves: number, time: number) => {
     const newResult = { moves, time };
-    const updatedResults = [...results, newResult];
-  
+    const savedResultsString = localStorage.getItem('gameResults');
+    const savedResults = savedResultsString ? JSON.parse(savedResultsString) : [];
+    const updatedResults = [...savedResults, newResult];
+
     localStorage.setItem('gameResults', JSON.stringify(updatedResults));
-    setResults(updatedResults); // Aktualizacja stanu
-    localStorage.setItem('isScoreSaved', 'true');
+    setResults(updatedResults);
   };
-  
 
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
     saveResult(moves, time);
-    setIsScoreSavedLocally(true);
     setShowResults(true);
   };
 
