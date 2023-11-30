@@ -1,6 +1,6 @@
 # Memory Match Game
 
-[**Live Demo**](https://spojrzenie.github.io/memory-match/)
+## [**Live Demo**](https://spojrzenie.github.io/memory-match/)
 
 ![Game Screenshot](screenshot.png)
 
